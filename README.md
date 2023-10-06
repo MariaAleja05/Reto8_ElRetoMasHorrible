@@ -1,6 +1,6 @@
 # Reto número 8 repo
 ### Fecha:  04-10-2023
-### Link notebook:
+### Link notebook: https://colab.research.google.com/drive/1-UD-JkBPsWI-TXVp8vZ-jUWiJt-kswGH?usp=sharing
 **1.** Imprimir un listado con los números del 1 al 100 cada uno con su respectivo cuadrado.
 * EXPLICACIÓN
 * Mirar archivo Punto_1.py
