@@ -1,4 +1,4 @@
-# Reto número 7 repo
+# Reto número 8 repo
 ### Fecha:  04-10-2023
 ### Link notebook:
 **1.** Imprimir un listado con los números del 1 al 100 cada uno con su respectivo cuadrado.
