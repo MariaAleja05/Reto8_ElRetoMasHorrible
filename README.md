@@ -73,7 +73,11 @@ for i in range(1, n+1, +1):
   print("El factorial de " + str(i) + " es: " + str(factorial))
 ```
 **5.** Calcular el valor de 2 elevado a la potencia n usando ciclos for.
-* EXPLICACIÓN
+* Para este problema primero le solicité al ususario ingresar el numero entero n que será la potencia del número 2.
+
+Creé un for, el cuál funcionará n-1 veces ya que la potencia de 2 a la cero es uno y de esta manera se puede calcular esta. Dentro del for se va realizando la operación de 2*2 para hallar la potencia final
+
+Cuando se hayan evaluado n-1 veces el for, significa que ya se ha calculado la potencia, el programa imprimirá el resultado.
 * Mirar archivo Punto_5.py
 ```pseudocode
 n = int(input("Ingrese el número de la potencia: "))
@@ -85,20 +89,31 @@ for i in range(n-1):
 print("El resultado es: " + str(potencia))
 ```
 **6.** Leer un número natural n, leer otro dato de tipo real x y calcular x^n usando ciclos for.
-* EXPLICACIÓN
+* Para este problema primero le solicité al ususario ingresar el numero natural n, un número real x, además, creé la variable operacion que tendrá el valor inicial de 1.
+
+Creé un for, el cuál funcionará n-1 veces ya que la potencia de un número a la cero es uno y de esta manera se puede calcular esta. Dentro del for se va realizando la operación de multiplicar n veces el número por sí mismo.
+
+Cuando se hayan evaluado n-1 veces el for, significa que ya se ha calculado la potencia, el programa imprimirá el resultado.
 * Mirar archivo Punto_6.py
 ```pseudocode
 n = int(input("Ingrese un número natural: "))
 x = float(input("Ingrese un número real: "))
-operacion = x
+operacion = 1
 
 for i in range(n-1):
-  operacion = operacion*x
-  
+  operacion *= x
+
 print("El resultado es: " + str(operacion))
 ```
 **7.** Diseñe un programa que muestre las tablas de multiplicar del 1 al 9.
-* EXPLICACIÓN
+* Para este problema primero creé la variable mult para poder imprimir más fácilmente las tablas.
+
+Creé un for, el cuál funcionará en el rango desde 1 hasta 10 (para incluir la tabla del 9). Lo primero que se realiza es imprimir el valor i del for que se usa para saber la tabla de multiplicar a que número corresponde. Después, hay otro for que funciona en el rango desde 1 hasta 11 (para incluir en la tabla el x10) el cuál multiplicará en valor i por j (así funcionan las tablas de multiplicar ;) y este resultado se irá imprimiendo. 
+
+Cuando se hayan evaluado todos los valores del primer for con todos los del segundo for, significa que ya se han calculado todas las tablas, el programa ya habrá imprimido todos los resultados.
+
+Pdt: Si fuera más viejita, este programa me hubiera sacado muchas canas, a pesar de q se vea fácil...el proceso de descifrarlo no lo fue :)
+
 * Mirar archivo Punto_7.py
 ```pseudocode
 mult=1
