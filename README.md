@@ -158,7 +158,29 @@ if __name__ == "__main__":
 * EXPLICACIÓN
 * Mirar archivo Punto_9.py
 ```pseudocode
+import math
+from math import sin, factorial
 
+def AproxSeno(x: float, n:int) -> float:
+  suma: float = 0
+  for i in range(0, n+1):
+    y = ((-1)**i)*((x**((2*i)+1))/factorial((2*i)+1))
+    suma += y
+  return suma
+
+if __name__ == "__main__":
+  x = float(input("Ingrese un número real: "))
+  n: int = 1
+  aprox: float = AproxSeno(x, n)
+  valorReal: float = sin(x)
+
+  while ((abs(valorReal - aprox)/valorReal * 100)>0.1):
+    aprox: float = AproxSeno(x, n)
+    n += 1
+  print("El valor de n para tener un error menor a 0.1: " + str(n))
+
+  print("La aproximación es: " + str(aprox))
+  print("El valor real es: " + str(valorReal))
 ```
 **10.** Diseñar una función que permita calcular una aproximación de la función arcotangente alrededor de 0 para cualquier valor x en el rango [-1, 1], utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función arctan y mostrar la diferencia entre el valor real y la aproximación.
 * EXPLICACIÓN
