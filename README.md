@@ -129,7 +129,30 @@ for i in range(1, 10):
 * EXPLICACIÓN
 * Mirar archivo Punto_8.py
 ```pseudocode
+import math
+from math import exp, factorial
 
+def AproxFuncionExponencial(x: float, n:int) -> float:
+  suma: float = 0
+  for i in range(0, n+1):
+    y = ((x**i)/factorial(i))
+    suma += y
+  return suma
+
+if __name__ == "__main__":
+  x = float(input("Ingrese un número real: "))
+  n: int = 1
+  rta1: float = AproxFuncionExponencial(x, n)
+  aprox: float = AproxFuncionExponencial(x, n)
+  valorReal: float = exp(x)
+  
+  while ((abs(valorReal - aprox)/valorReal * 100)>0.1):
+    aprox: float = AproxFuncionExponencial(x, n)
+    n += 1
+  print("La n: " + str(n))
+  
+  print("La aproximación es: " + str(aprox))
+  print("El valor real es: " + str(valorReal))
 ```
 **9.** Diseñar una función que permita calcular una aproximación de la función seno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función seno y mostrar la diferencia entre el valor real y la aproximación.
 * EXPLICACIÓN
