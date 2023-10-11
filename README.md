@@ -149,7 +149,7 @@ if __name__ == "__main__":
   while ((abs(valorReal - aprox)/valorReal * 100)>0.1):
     aprox: float = AproxFuncionExponencial(x, n)
     n += 1
-  print("La n: " + str(n))
+  print("El valor de n para tener un error menor a 0.1: " + str(n))
   
   print("La aproximación es: " + str(aprox))
   print("El valor real es: " + str(valorReal))
