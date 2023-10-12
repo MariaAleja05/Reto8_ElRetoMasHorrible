@@ -1,6 +1,8 @@
 # Reto número 8 repo
 ### Fecha:  04-10-2023
 ### Link notebook: https://colab.research.google.com/drive/1-UD-JkBPsWI-TXVp8vZ-jUWiJt-kswGH?usp=sharing
+* Mirar archivo Reto_8.ipynb
+
 **1.** Imprimir un listado con los números del 1 al 100 cada uno con su respectivo cuadrado.
 * Para este problema primero definí mis variables n=1 ya que el listado debe comenzar desde 1 y, una lista vacía donde se van a ir incluyendo los cuadrados de los número.
 
@@ -125,8 +127,14 @@ for i in range(1, 10):
     mult=i*j
     print(str(i) + " x " + str(j) + " = " + str(mult))
 ```
+***spoiler:*** Los siguientes tres puntos son los peores ejercicios que alguien se pudo inventar para este taller...muchas trasnochadas, espero entiendas mi explicación :(
+
 **8.** Diseñar una función que permita calcular una aproximación de la función exponencial alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función exponencial y mostrar la diferencia entre el valor real y la aproximación.
-* EXPLICACIÓN
+* Para este problema primero importe math y las funciones exp y factorial para desarrollar las operaciones.
+
+Creé una función con un for de rango desde 0 hasta n+1 (para incluir n) donde va a realizar la operación de la serie de Maclaurin (y) y el resultado de esta operación se le irá sumando a la variable "suma" para calcularla. La función retornará la aproximación de esta operación en la variable suma.
+
+En la función main, se le solicita al usuario ingresar el número real, definimos que n(número de iteraciones) comience a evaluar desde 1, llamamos la función de la aprox exponencial para mostrar el resultado de la aproximación, luego para mostrar el valor real lo calculamos usando la función de math: exp. Hay un while para calcular el número de veces n que se puede realizar la operación mientras que el error entre la aprox y el valor real no se pase de 0.1, en este se llama la función para que n se vaya actualizando en esta mientras se cumpla la condición.
 * Mirar archivo Punto_8.py
 ```pseudocode
 import math
@@ -145,17 +153,21 @@ if __name__ == "__main__":
   rta1: float = AproxFuncionExponencial(x, n)
   aprox: float = AproxFuncionExponencial(x, n)
   valorReal: float = exp(x)
-  
+
   while ((abs(valorReal - aprox)/valorReal * 100)>0.1):
     aprox: float = AproxFuncionExponencial(x, n)
     n += 1
   print("El valor de n para tener un error menor a 0.1: " + str(n))
-  
+
   print("La aproximación es: " + str(aprox))
   print("El valor real es: " + str(valorReal))
 ```
 **9.** Diseñar una función que permita calcular una aproximación de la función seno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función seno y mostrar la diferencia entre el valor real y la aproximación.
-* EXPLICACIÓN
+* Para este problema primero importe math y las funciones sin y factorial para desarrollar las operaciones.
+
+Creé una función con un for de rango desde 0 hasta n+1 (para incluir n) donde va a realizar la operación de la serie de Maclaurin (y) y el resultado de esta operación se le irá sumando a la variable "suma" para calcularla. La función retornará la aproximación de esta operación en la variable suma.
+
+En la función main, se le solicita al usuario ingresar el número real, definimos que n(número de iteraciones) comience a evaluar desde 1, llamamos la función de la aprox del seno para mostrar el resultado de la aproximación, luego para mostrar el valor real lo calculamos usando la función de math: sin. Hay un while para calcular el número de veces n que se puede realizar la operación mientras que el error entre la aprox y el valor real no se pase de 0.1, en este se llama la función para que n se vaya actualizando en esta mientras se cumpla la condición.
 * Mirar archivo Punto_9.py
 ```pseudocode
 import math
@@ -183,8 +195,34 @@ if __name__ == "__main__":
   print("El valor real es: " + str(valorReal))
 ```
 **10.** Diseñar una función que permita calcular una aproximación de la función arcotangente alrededor de 0 para cualquier valor x en el rango [-1, 1], utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función arctan y mostrar la diferencia entre el valor real y la aproximación.
-* EXPLICACIÓN
+* Para este problema primero importe numpy y la función arctan para desarrollar las operaciones.
+
+Creé una función con un for de rango desde -2 hasta 2 (para incluir -1 y 1) donde va a realizar la operación de la serie de Maclaurin (y) y el resultado de esta operación se le irá sumando a la variable "suma" para calcularla. La función retornará la aproximación de esta operación en la variable suma.
+
+En la función main, se le solicita al usuario ingresar el número real, definimos que n(número de iteraciones) comience a evaluar desde 1, llamamos la función de la aprox arcotangente para mostrar el resultado de la aproximación, luego para mostrar el valor real lo calculamos usando la función de numpy: arctan. Hay un while para calcular el número de veces n que se puede realizar la operación mientras que el error entre la aprox y el valor real no se pase de 0.1, en este se llama la función para que n se vaya actualizando en esta mientras se cumpla la condición.
 * Mirar archivo Punto_10.py
 ```pseudocode
+import numpy
+from numpy import arctan
 
+def AproxArctan(x: float, n:int) -> float:
+  suma: float = 0
+  for i in range(-2, 2):
+    y = ((-1)**i)*(((x**((2*i)+1))/((2*i)+1)))
+    suma += y
+  return suma
+
+if __name__ == "__main__":
+  x = float(input("Ingrese un número real: "))
+  n: int = 1
+  aprox: float = AproxArctan(x, n)
+  valorReal: float = arctan(x)
+
+  while ((abs(valorReal - aprox)/valorReal * 100)<0.1):
+    aprox: float = AproxArctan(x, n)
+    n += 1
+  print("El valor de n para tener un error menor a 0.1: " + str(n))
+
+  print("La aproximación es: " + str(aprox))
+  print("El valor real es: " + str(valorReal))
 ```
